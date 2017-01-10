@@ -805,7 +805,7 @@
    </procedure>
   </sect2>
 
-  <sect2 xml:id="sec.security.auth.yast.client">
+  <sect2 xml:id="sec.security.auth.yast.client.kerberos">
    <title>Setting up Kerberos</title>
 
    <figure xml:id="fig.yast2.auth.client.new_domain.ldap_krb5">
