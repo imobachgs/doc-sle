@@ -780,7 +780,7 @@
     <step>
      <para>
       If your LDAP server supports TLS security, choose the appropriate
-      security option under <guimenu>Secure LDAP Connenction</guimenu>.
+      security option under <guimenu>Secure LDAP Connection</guimenu>.
      </para>
     </step>
     <step>
@@ -805,8 +805,22 @@
    </procedure>
   </sect2>
 
+  <sect2 xml:id="sec.security.auth.yast.client">
+   <title>Setting up Kerberos</title>
 
-  <para>
+   <figure xml:id="fig.yast2.auth.client.new_domain.ldap_krb5">
+    <title><guimenu>LDAP and Kerberos Client</guimenu>: Kerberos</title>
+    <mediaobject>
+     <imageobject role="html">
+      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
+     </imageobject>
+     <imageobject role="fo">
+      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
+     </imageobject>
+    </mediaobject>
+   </figure>
+
+  <!-- <para>
    First, configure at least one authentication domain. An
    authentication domain is a database that contains user information. Click
    <guimenu>New Service/Domain</guimenu>, select <guimenu>Domain</guimenu>,
@@ -821,18 +835,6 @@
    <guimenu>Activate Domain</guimenu> enabled (see
    <xref linkend="fig.yast2.auth.client.new_domain.ldap_krb5"/>).
   </para>
-
-  <figure xml:id="fig.yast2.auth.client.new_domain.ldap_krb5">
-   <title><guimenu>LDAP and Kerberos Client</guimenu>: Kerberos</title>
-   <mediaobject>
-    <imageobject role="html">
-     <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
-    </imageobject>
-    <imageobject role="fo">
-     <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
-    </imageobject>
-   </mediaobject>
-  </figure>
 
 
   <para>
@@ -979,8 +981,8 @@
   </variablelist>
 
   <para>
-   If you enter more than one authentication domain, SSSD will query one
-   after the one in the order they appear in the
+   If you enter more than one authentication domain, SSSD will query each
+   one individually in the order they appear in the
    <filename>/etc/sssd/sssd.conf</filename> configuration file. If a domain
    is rarely used and you need to avoid waiting for the timeout, remove it
    from the <guimenu>Domains</guimenu> list of the <guimenu>sssd</guimenu>
@@ -1020,6 +1022,7 @@ sssd.service - System Security Services Daemon
   </para>
   <screen><command>systemctl stop sssd</command>
 <command>rm -f /var/lib/sss/db/*</command>
-<command>systemctl start sssd</command></screen>
+<command>systemctl start sssd</command></screen>-->
+  </sect2>
  </sect1>
 </chapter>
