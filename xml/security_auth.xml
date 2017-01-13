@@ -204,7 +204,6 @@
 <!-- ============================================================ -->
 
   <sect2 xml:id="sec.security.auth.yast.edit">
-<!-- os="sles">-->
    <title>Editing an Authentication Server Configuration with &yast;</title>
    <para>
     For changes or additional configuration start the Authentication Server
@@ -584,7 +583,7 @@
        <para>
         Determine the minimum password time-limit (the time that needs to
         pass between two valid password changes) and the maximum password
-        time-limit.
+        time limit.
        </para>
       </step>
       <step>
@@ -674,151 +673,172 @@
 <!-- ============================================================ -->
 
  <sect1 xml:id="sec.security.auth.yast.client">
-  <title>Configuring an Authentication Client with &yast; (SSSD)</title>
-
-<!-- idx --><indexterm>
-
-  <primary>LDAP</primary>
-
-  <secondary>&yast;</secondary>
-
-  <tertiary>client</tertiary></indexterm><indexterm>
-
-  <primary>&yast;</primary>
-
-  <secondary>LDAP</secondary>
-
-  <tertiary>clients</tertiary></indexterm><indexterm>
-
-  <primary>LDAP</primary>
-
-  <secondary>&yast;</secondary>
-
-  <tertiary>modules</tertiary></indexterm><indexterm>
-
-  <primary>LDAP</primary>
-
-  <secondary>&yast;</secondary>
-
-  <tertiary>templates</tertiary></indexterm>
+  <title>Configuring an Authentication Client with &yast;</title>
 
   <para>
-   &yast; includes the <guimenu>LDAP and Kerberos Client</guimenu> module
-   that helps with defining authentication scenarios. It can also be used to
-   join Kerberos and LDAP separately. However, in some cases, using this
-   module may not be the first choice, such as for joining &ad; (which uses a
-   combination of LDAP and Kerberos). For more information, see
+   &yast; allows setting up authentication to clients using different
+   modules. For more information, see:
    <xref linkend="sec.security.ad.configure.choose"/>.
   </para>
-  <para>
-   Start the module by
-   selecting <menuchoice> <guimenu>Network Services</guimenu>
-   <guimenu>LDAP and Kerberos Client</guimenu> </menuchoice>. The &yast;
-   Authentication Client is a shell for configuring the System Security
-   Services Daemon (SSSD). SSSD then can talk to remote directory services
-   that provide user data, and provide various authentication methods. This
-   way, the host can be both, an LDAP or an &ad; (&ada;) client.
-   SSSD can locally cache these user data and then allow users to use of the
-   data, even if the real directory service is (temporarily) unreachable. An
-   NSS (Name Service Switch) and PAM (Pluggable Authentication Module)
-   interface are also available.
-  </para>
-  <figure xml:id="fig.yast2.auth.client.cfg">
-   <title><guimenu>LDAP and Kerberos Client</guimenu> Window</title>
-   <mediaobject>
-    <imageobject role="html">
-     <imagedata fileref="yast2_auth_client_config.png" width="65%" format="PNG"/>
-    </imageobject>
-    <imageobject role="fo">
-     <imagedata fileref="yast2_auth_client_config.png" width="65%" format="PNG"/>
-    </imageobject>
-   </mediaobject>
-  </figure>
+ </sect1>
+<!-- <sect1 xml:id="sec.security.auth.yast.client">-->
+<!--  <title>Configuring an Authentication Client with &yast; (SSSD)</title>-->
 
-  <sect2 xml:id="sec.security.auth.ldap">
-   <title>Setting up LDAP</title>
-   <para>
-    LDAP allows sharing data about users and groups.
-   </para>
-   <figure xml:id="fig.yast2.auth.client.new_domain.ldap">
-    <title><guimenu>LDAP and Kerberos Client</guimenu>: LDAP</title>
-    <mediaobject>
-     <imageobject role="html">
-      <imagedata fileref="yast2_auth_client_ldap.png" width="65%" format="PNG"/>
-     </imageobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast2_auth_client_ldap.png" width="65%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
-   <para>
-    To configure LDAP, follow the procedure below:
-   </para>
-   <procedure xml:id="pro.security.auth.ldap">
-    <step>
-     <para>
-      In the window <guimenu>LDAP and Kerberos Client</guimenu>, click
-      <guimenu>Change Settings</guimenu>.
-     </para>
-     <para>
-      Make sure the tab <guimenu>LDAP</guimenu> is chosen.
-     </para>
-    </step>
-    <step>
-     <para>
-      Specify one or more LDAP server URLs, host names, or IP addresses under
-      <guimenu>Enter LDAP server locations</guimenu>.
-     </para>
-    </step>
-    <step>
-     <para>
-      Specify the appropriate LDAP domain name under <guimenu>DN of Search
-      Base</guimenu>. For example, a valid entry could be
-      <literal>dc=example,dc=com</literal>.
-     </para>
-    </step>
-    <step>
-     <para>
-      If your LDAP server supports TLS security, choose the appropriate
-      security option under <guimenu>Secure LDAP Connection</guimenu>.
-     </para>
-    </step>
-    <step>
-     <para>
-      Activate other options as necessary, for example whether to allow
-      users to authenticate via LDAP. Under
-      <guimenu>Extended Options</guimenu>, you can additionally configure
-      timeouts for BIND operations.
-     </para>
-    </step>
-    <step>
-     <para>
-      To check whether the LDAP connection works, click
-      <guimenu>Test Connection</guimenu>.
-     </para>
-    </step>
-    <step>
-     <para>
-      To leave the dialog, click <guimenu>OK</guimenu>.
-     </para>
-    </step>
-   </procedure>
-  </sect2>
+<!--  <para>-->
+<!--   &yast; includes the <guimenu>LDAP and Kerberos Client</guimenu> module-->
+<!--   that helps with defining authentication scenarios. It can also be used to-->
+<!--   join Kerberos and LDAP separately. However, in some cases, using this-->
+<!--   module may not be the first choice, such as for joining &ad; (which uses a-->
+<!--   combination of LDAP and Kerberos). For more information, see-->
+<!--   <xref linkend="sec.security.ad.configure.choose"/>.-->
+<!--  </para>-->
+<!--  <para>-->
+<!--   Start the module by-->
+<!--   selecting <menuchoice> <guimenu>Network Services</guimenu>-->
+<!--   <guimenu>LDAP and Kerberos Client</guimenu> </menuchoice>. The &yast;-->
+<!--   Authentication Client is a shell for configuring the System Security-->
+<!--   Services Daemon (SSSD). SSSD then can talk to remote directory services-->
+<!--   that provide user data, and provide various authentication methods. This-->
+<!--   way, the host can be both, an LDAP or an &ad; (&ada;) client.-->
+<!--   SSSD can locally cache these user data and then allow users to use of the-->
+<!--   data, even if the real directory service is (temporarily) unreachable. An-->
+<!--   NSS (Name Service Switch) and PAM (Pluggable Authentication Module)-->
+<!--   interface are also available.-->
+<!--  </para>-->
+<!--  <figure xml:id="fig.yast2.auth.client.cfg">-->
+<!--   <title><guimenu>LDAP and Kerberos Client</guimenu> Window</title>-->
+<!--   <mediaobject>-->
+<!--    <imageobject role="html">-->
+<!--     <imagedata fileref="yast2_auth_client_config.png" width="65%" format="PNG"/>-->
+<!--    </imageobject>-->
+<!--    <imageobject role="fo">-->
+<!--     <imagedata fileref="yast2_auth_client_config.png" width="65%" format="PNG"/>-->
+<!--    </imageobject>-->
+<!--   </mediaobject>-->
+<!--  </figure>-->
 
-  <sect2 xml:id="sec.security.auth.yast.client.kerberos">
-   <title>Setting up Kerberos</title>
+<!--  <sect2 xml:id="sec.security.auth.ldap">-->
+<!--   <title>Setting up LDAP</title>-->
+<!--   <para>-->
+<!--    LDAP allows sharing data about users and groups.-->
+<!--   </para>-->
+<!--   <figure xml:id="fig.yast2.auth.client.new_domain.ldap">-->
+<!--    <title><guimenu>LDAP and Kerberos Client</guimenu>: LDAP</title>-->
+<!--    <mediaobject>-->
+<!--     <imageobject role="html">-->
+<!--      <imagedata fileref="yast2_auth_client_ldap.png" width="65%" format="PNG"/>-->
+<!--     </imageobject>-->
+<!--     <imageobject role="fo">-->
+<!--      <imagedata fileref="yast2_auth_client_ldap.png" width="65%" format="PNG"/>-->
+<!--     </imageobject>-->
+<!--    </mediaobject>-->
+<!--   </figure>-->
+<!--   <para>-->
+<!--    To configure LDAP, follow the procedure below:-->
+<!--   </para>-->
+<!--   <procedure xml:id="pro.security.auth.ldap">-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      In the window <guimenu>LDAP and Kerberos Client</guimenu>, click-->
+<!--      <guimenu>Change Settings</guimenu>.-->
+<!--     </para>-->
+<!--     <para>-->
+<!--      Make sure that the tab <guimenu>Use a Directory as Identity Provider-->
+<!--      (LDAP)</guimenu> is chosen.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      Specify one or more LDAP server URLs, host names, or IP addresses under-->
+<!--      <guimenu>Enter LDAP server locations</guimenu>. When specifying multiple-->
+<!--      addresses, separate them with spaces.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      Specify the appropriate LDAP domain name under <guimenu>DN of Search-->
+<!--      Base</guimenu>. For example, a valid entry could be-->
+<!--      <literal>dc=example,dc=com</literal>.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      If your LDAP server supports TLS encryption, choose the appropriate-->
+<!--      security option under <guimenu>Secure LDAP Connection</guimenu>.-->
+<!--     </para>-->
+<!--     <para>-->
+<!--      To first ask the server whether it supports TLS encryption and be able-->
+<!--      to downgrade to an unencrypted connection if it does not, use-->
+<!--      <guimenu>Secure Communication via StartTLS</guimenu>.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      Activate other options as necessary:-->
+<!--     </para>-->
+<!--     <itemizedlist>-->
+<!--      <listitem>-->
+<!--       <para>-->
+<!--        You can <guimenu>Allow users to authenticate via LDAP</guimenu> and-->
+<!--        <guimenu>Automatically Create Home Directories</guimenu>.-->
+<!--       </para>-->
+<!--      </listitem>-->
+<!--      <listitem>-->
+<!--       <para>-->
+<!--        Use <guimenu>Cache LDAP Entries For Faster Response</guimenu> to cache-->
+<!--        LDAP entries locally. However, this bears the danger that entries can-->
+<!--        be slightly out of date.-->
+<!--       </para>-->
+<!--      </listitem>-->
+<!--      <listitem>-->
+<!--       <para>-->
+<!--        Specify the types of data that should be used from the LDAP source,-->
+<!--        such as-->
+<!--        <guimenu>Users</guimenu> and <guimenu>Groups</guimenu>,-->
+<!--        <guimenu>Super-User Commands</guimenu>, and <guimenu>Network Disk-->
+<!--        Locations</guimenu> (network shared drives that can be automatically-->
+<!--        mounted on request).-->
+<!--       </para>-->
+<!--      </listitem>-->
+<!--      <listitem>-->
+<!--       <para>-->
+<!--        -->
+<!--       </para>-->
+<!--      </listitem>-->
+<!--     </itemizedlist>-->
+<!--     <para>-->
+<!--      Under <guimenu>Extended Options</guimenu>, you can additionally-->
+<!--      configure timeouts for BIND operations.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      To check whether the LDAP connection works, click-->
+<!--      <guimenu>Test Connection</guimenu>.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--    <step>-->
+<!--     <para>-->
+<!--      To leave the dialog, click <guimenu>OK</guimenu>.-->
+<!--     </para>-->
+<!--    </step>-->
+<!--   </procedure>-->
+<!--  </sect2>-->
 
-   <figure xml:id="fig.yast2.auth.client.new_domain.ldap_krb5">
-    <title><guimenu>LDAP and Kerberos Client</guimenu>: Kerberos</title>
-    <mediaobject>
-     <imageobject role="html">
-      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
-     </imageobject>
-     <imageobject role="fo">
-      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>
-     </imageobject>
-    </mediaobject>
-   </figure>
+<!--  <sect2 xml:id="sec.security.auth.yast.client.kerberos">-->
+<!--   <title>Setting up Kerberos</title>-->
+
+<!--   <figure xml:id="fig.yast2.auth.client.new_domain.ldap_krb5">-->
+<!--    <title><guimenu>LDAP and Kerberos Client</guimenu>: Kerberos</title>-->
+<!--    <mediaobject>-->
+<!--     <imageobject role="html">-->
+<!--      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>-->
+<!--     </imageobject>-->
+<!--     <imageobject role="fo">-->
+<!--      <imagedata fileref="yast2_auth_client_krb5.png" width="65%" format="PNG"/>-->
+<!--     </imageobject>-->
+<!--    </mediaobject>-->
+<!--   </figure>-->
 
   <!-- <para>
    First, configure at least one authentication domain. An
