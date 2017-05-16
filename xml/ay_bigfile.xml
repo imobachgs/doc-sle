@@ -2029,8 +2029,105 @@ exit 0
    <title>Partitioning</title>
 
    <para>
-    <remark role="fixme">Add a short description</remark>
+    When it comes to storage set up and partitioning, &ay; offers a wide range
+    of options, from a convenient automated partition to a fully user customized
+    one.
    </para>
+
+   <para>
+    If the profiles does not contain information about storage nor partitioning, &ay;
+    will propose a partitioning layout according to product rules and system
+    characteristics. This automated partition mechanism can be influenced by setting
+    general settings like, for instance, whether the system should use LVM or a separate
+    partition for the /home mount point.
+   </para>
+
+   <para>
+    On the other hand, the user can define all the details about partitioning: drives
+    to use, partitions, filesystems, mount options, etc.). Of course, if some information
+    is missing, &ay; will try to fill the gap proposing sensible defaults.
+   </para>
+
+   <sect2 xml:id="CreateProfile.Partitioning.Sections">
+    <title>Storage Configuration</title>
+
+    <para>
+     Storage and partitioning are configured through two different sections of the profile.
+     The first one is the <literal>storage</literal> section (under <literal>general</literal>)
+     which is supposed to contain generic options to influence the storage layer. Settings to
+     adjust the proposal, when using automated partitioning, are also included here.
+    </para>
+
+    <para>
+     On the other hand, the <literal>partitioning</literal> section contains a user-defined
+     specification of the partitioning layout. Basically, it is a list of drives
+     including partitions, filesystems, etc.
+    </para>
+   </sect2>
+
+   <sect2 xml:id="CreateProfile.Partitioning.Auto">
+    <title>Automated Partition</title>
+
+    <variablelist>
+     <varlistentry>
+      <term><tag class="element">try_separate_home</tag></term>
+      <listitem>
+       <para>
+        Determines whether &ay; the automated proposal should try to use a different
+        partition for the <literal>/home</literal> mount point.
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">root_space_percent</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">proposal_lvm</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">btrfs_increase_percentage</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">root_base_size</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">root_max_size</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+
+     <varlistentry>
+      <term><tag class="element">vm_home_max_size</tag></term>
+      <listitem>
+       <para>
+       </para>
+      </listitem>
+     </varlistentry>
+    </variablelist>
+   </sect2>
 
    <sect2 xml:id="CreateProfile.Partitioning.config">
     <title>Drive Configuration</title>
